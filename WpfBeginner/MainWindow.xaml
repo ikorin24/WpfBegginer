@@ -5,8 +5,33 @@
         xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
         xmlns:local="clr-namespace:WpfBeginner"
         mc:Ignorable="d"
+        FontSize="60"
         Title="MainWindow" Height="450" Width="800">
+    <Window.DataContext>
+        <local:MainWindowViewModel/>
+    </Window.DataContext>
     <Grid>
-        
+        <Grid.RowDefinitions>
+            <RowDefinition/>
+            <RowDefinition/>
+        </Grid.RowDefinitions>
+        <Grid Grid.Row="0">
+            <Grid.ColumnDefinitions>
+                <ColumnDefinition/>
+                <ColumnDefinition/>
+                <ColumnDefinition/>
+                <ColumnDefinition/>
+                <ColumnDefinition/>
+                <ColumnDefinition/>
+                <ColumnDefinition/>
+            </Grid.ColumnDefinitions>
+            
+            <TextBox Grid.Column="1" Height="100" Text="{Binding Value1}"/>
+            <TextBlock Grid.Column="2" Text="+" Height="100" HorizontalAlignment="Center"/>
+            <TextBox Grid.Column="3" Height="100" Text="{Binding Value2}"/>
+            <TextBlock Grid.Column="4" Text="=" Height="100" HorizontalAlignment="Center"/>
+            <TextBox Grid.Column="5" Height="100" IsReadOnly="True" Text="{Binding Answer}"/>
+        </Grid>
+        <Button Grid.Row="1" Width="300" Height="100" Content="計算実行" Command="{Binding CalcCommand}"/>
     </Grid>
 </Window>
